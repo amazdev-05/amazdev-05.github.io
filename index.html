@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ronnie Capra, Forward Deployed Engineer. IA appliquée, données, BIM. Guadeloupe et à distance.">
+<meta name="author" content="Ronnie Capra">
+<meta property="og:title" content="Ronnie Capra">
+<meta property="og:description" content="Ronnie Capra, Forward Deployed Engineer. IA appliquée, données, BIM. Guadeloupe et à distance.">
+<title>Stack Ronnie Capra</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Mise en page : une feuille de plan. Cartouche en tête, contenu sur une colonne, chronologie en tableau des indices. */
+:root{
+  --paper:#f4f6f4;
+  --sheet:#fbfcfb;
+  --ink:#18201c;
+  --muted:#5b6660;
+  --line:#c9d1cc;
+  --rev:#b8322a;
+  --rev-soft:#f3dedb;
+  --font-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#101412; --sheet:#151a17; --ink:#e3e9e5; --muted:#98a49d;
+    --line:#2d3631; --rev:#e8675c; --rev-soft:#3a1f1c; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#101412; --sheet:#151a17; --ink:#e3e9e5; --muted:#98a49d;
+  --line:#2d3631; --rev:#e8675c; --rev-soft:#3a1f1c; color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;padding-inline:16px;padding-block:28px 64px}
+.sheet{max-width:780px;margin:0 auto;background:var(--sheet);border:1px solid var(--line);padding:clamp(20px,4vw,44px)}
+a{color:inherit;text-decoration-color:var(--rev);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--rev);outline-offset:2px}
+
+/* Bascule de langue */
+.langbar{display:flex;justify-content:flex-end;gap:6px;max-width:780px;margin:0 auto 10px}
+.langbar button{font-family:var(--font-mono);font-size:12px;letter-spacing:.08em;background:transparent;color:var(--muted);border:1px solid var(--line);padding:5px 12px;cursor:pointer}
+.langbar button[aria-pressed="true"]{color:var(--sheet);background:var(--ink);border-color:var(--ink)}
+
+/* Cartouche, comme en bas d'un plan */
+.cartouche{display:grid;grid-template-columns:1fr auto;border:1.5px solid var(--ink);margin-bottom:34px}
+.cartouche .name{padding:16px 18px;border-right:1.5px solid var(--ink);min-width:0}
+.cartouche h1{font-family:var(--font-display);font-weight:700;font-size:clamp(38px,8vw,58px);line-height:.95;margin:0;letter-spacing:.01em}
+.cartouche .role{margin:10px 0 0;font-weight:500;font-size:15px;text-wrap:balance}
+.cartouche dl{margin:0;display:grid;grid-template-columns:auto auto;font-family:var(--font-mono);font-size:12px}
+.cartouche dt,.cartouche dd{margin:0;padding:7px 12px;border-bottom:1px solid var(--line)}
+.cartouche dt{color:var(--muted);text-transform:uppercase;letter-spacing:.08em;border-right:1px solid var(--line)}
+.cartouche dd{font-variant-numeric:tabular-nums}
+.cartouche dl > :nth-last-child(-n+2){border-bottom:0}
+.cartouche .ind{color:var(--rev);font-weight:500}
+
+.lede{font-size:clamp(20px,3.4vw,24px);line-height:1.4;font-weight:500;margin:0 0 30px;max-width:30ch;text-wrap:balance}
+
+h2{font-family:var(--font-display);font-weight:600;font-size:15px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin:42px 0 14px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+p{margin:0 0 14px;max-width:65ch}
+ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+ul.plain li{padding-left:18px;position:relative;max-width:68ch}
+ul.plain li::before{content:"";position:absolute;left:0;top:.72em;width:8px;height:1.5px;background:var(--ink)}
+.num{font-family:var(--font-mono);font-size:.92em;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.distinct{margin:28px 0 0;padding:16px 18px;border-left:3px solid var(--rev);background:var(--rev-soft)}
+.distinct p{margin:0}
+.distinct p + p{margin-top:8px;font-weight:600}
+
+/* Tableaux */
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-family:var(--font-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+td:first-child{font-weight:600;width:42%}
+.rev td:first-child{width:auto;font-family:var(--font-mono);font-weight:500;color:var(--rev)}
+.rev td:nth-child(2){font-family:var(--font-mono);white-space:nowrap;color:var(--muted);font-size:14px}
+
+.state{display:inline-block;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border:1px solid var(--line);color:var(--muted);margin-left:6px;vertical-align:2px}
+.state.stop{border-color:var(--rev);color:var(--rev)}
+
+.contact{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px;font-size:15px}
+.contact span{display:block;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.todo{color:var(--muted);font-style:italic}
+
+.foot{margin-top:40px;font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+
+@media (max-width:560px){
+  .cartouche{grid-template-columns:1fr}
+  .cartouche .name{border-right:0;border-bottom:1.5px solid var(--ink)}
+  td:first-child{width:auto}
+}
+@media (prefers-reduced-motion:no-preference){ .langbar button{transition:background .15s,color .15s} }
+</style>
+
+</head>
+<body>
+<nav class="langbar" aria-label="Langue / Language">
+  <button type="button" id="btn-fr" data-lang="fr" aria-pressed="true">FR</button>
+  <button type="button" id="btn-en" data-lang="en" aria-pressed="false">EN</button>
+</nav>
+
+<!-- ======================= FRANÇAIS ======================= -->
+<main class="sheet" lang="fr" data-lang-block="fr">
+  <header class="cartouche">
+    <div class="name">
+      <h1>Ronnie Capra</h1>
+      <p class="role">Forward Deployed Engineer. IA appliquée, données, BIM. Guadeloupe et à distance.</p>
+    </div>
+    <dl>
+      <dt>Indice</dt><dd class="ind">F</dd>
+      <dt>Date</dt><dd>octobre 2026</dd>
+      <dt>Lieu</dt><dd>Les Abymes</dd>
+      <dt>Mise à jour</dt><dd>chaque mois</dd>
+    </dl>
+  </header>
+
+  <p class="lede">Je viens chez vous, je comprends votre métier, et je construis avec l'IA l'outil qui vous manque.</p>
+
+  <h2>Ce que j'ai livré</h2>
+  <ul class="plain">
+    <li>Depuis septembre 2026, l'état des lieux du système d'information et des données d'un établissement public des Antilles. Premier contrat public, <span class="num">8</span> livrables.</li>
+    <li>Pour cette mission, quatre outils construits sur place : un moteur qui imprime les livrables au gabarit, un relevé automatique de la messagerie, une chaîne de transcription des entretiens, et deux graphes de connaissance de <span class="num">845</span> et <span class="num">1 261</span> nœuds qui relient ce que le client a publié à ce que la mission établit.</li>
+    <li>Un moteur d'aide au chiffrage des appels d'offres du BTP pour les DOM : <span class="num">27 600</span> lignes de code et <span class="num">238</span> commits en sept semaines.</li>
+    <li>Un outil de quantitatifs à partir des maquettes IFC, mis à l'épreuve sur le dossier de consultation d'un hôpital, quatre lots.</li>
+    <li>Avant cela, quinze ans de chantier, de l'électricité au BIM : Centre spatial guyanais, centrale du Larivot pour EDF, centres hospitaliers de Cayenne et de Basse-Terre, lycée de Macouria, électrification rurale d'Apatou sur <span class="num">7 km</span>.</li>
+  </ul>
+
+  <div class="distinct">
+    <p>Ce qui me distingue : quinze ans de terrain dans la construction avant de venir à la donnée et à l'IA.</p>
+    <p>Le BIM, c'est le système d'information du chantier. Je fais aujourd'hui le même travail ailleurs.</p>
+  </div>
+
+  <h2>Ma stack</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Outil</th><th>Ce que j'en fais</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Code</td><td>mon poste principal : code, documents, recherche, et pilotage des autres agents</td></tr>
+        <tr><td>Hermes Agent, de Nous Research</td><td>un agent personnel qui tourne sur une machine dédiée</td></tr>
+        <tr><td>Modèles locaux, Ollama et LM Studio</td><td>les tâches sensibles ne quittent pas la machine</td></tr>
+        <tr><td>Antigravity, Cursor, VS Code</td><td>éditeurs</td></tr>
+        <tr><td>Serveurs MCP : Firecrawl, Context7, Playwright, Chrome DevTools</td><td>lire le web, la documentation à jour, piloter un navigateur</td></tr>
+        <tr><td>graphify</td><td>transformer un corpus de documents en graphe de connaissance</td></tr>
+        <tr><td>Python, JavaScript, Astro, Git</td><td>le code</td></tr>
+        <tr><td>Odoo</td><td>CRM, devis, facturation</td></tr>
+        <tr><td>Revit, Navisworks, AutoCAD, Mensura, BIMcollab, Solibri, Dalux, Autodesk Construction Cloud</td><td>le métier d'origine, toujours en service</td></tr>
+        <tr><td>Power BI, QGIS</td><td>tableaux de bord et données géographiques</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>L'environnement qui fait tourner le tout</h2>
+  <p>Un espace de travail où plusieurs agents d'IA opèrent sous des règles écrites : mémoire persistante, routage des projets, règles de sécurité, contrôles d'intégrité automatiques. Trente projets y tournent depuis mars 2026. Il est en cours d'adaptation pour être installé chez des clients.</p>
+
+  <h2>En cours</h2>
+  <ul class="plain">
+    <li>Les calendriers événementiels de la Guadeloupe et de la Guyane : domaines achetés, premier code écrit.</li>
+    <li>Un système d'agents qui travaillent en parallèle : conception et sécurité écrites.</li>
+    <li>Un atelier « Travailler avec l'IA » : quatre modules structurés.</li>
+  </ul>
+
+  <h2>Le laboratoire</h2>
+  <p>Ce que je construis pour moi, parce que je joue de la basse.</p>
+  <ul class="plain">
+    <li><strong>Woodshed</strong>, un poste d'entraînement pour bassiste : la ligne de basse défile avec les accords calés sur les temps, on boucle un passage, on dose chaque instrument. Plus de <span class="num">12 000</span> lignes, <span class="num">107</span> commits, tout tourne en local.</li>
+    <li><strong>StemBass Creator</strong> sépare les pistes d'un morceau, voix, batterie, basse. Exécutable livré.</li>
+  </ul>
+
+  <h2>Ce qui n'a pas marché</h2>
+  <ul class="plain">
+    <li>Le dossier technique d'une table-banc en béton préfabriqué, pour un industriel <span class="state stop">arrêté</span><br>Devis refusé, le client voulait une simple fiche produit. Depuis, je propose une première étape courte avant le dossier complet.</li>
+    <li>Une étude sur la valorisation des sargasses aux Antilles <span class="state">à publier</span><br>Plan et méthode écrits, puis arrêt sur la question du marché, pas sur la technique. Je la publierai gratuitement.</li>
+    <li>Un service de livraison aux particuliers <span class="state stop">écarté</span><br>Le marché ne suivait pas : arrêté avant de construire.</li>
+  </ul>
+
+  <h2>Mon année 2026</h2>
+  <div class="tablewrap">
+    <table class="rev">
+      <thead><tr><th>Indice</th><th>Mois</th><th>Objet</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>mai</td><td>l'espace de travail prend sa forme actuelle</td></tr>
+        <tr><td>B</td><td>juin</td><td>agent personnel installé ; moteur de chiffrage, 238 commits en sept semaines ; outil de quantitatifs IFC</td></tr>
+        <tr><td>C</td><td>juillet</td><td>séparation de pistes audio ; premiers systèmes multi-agents</td></tr>
+        <tr><td>D</td><td>août</td><td>Woodshed ; premier contrat public accepté</td></tr>
+        <tr><td>E</td><td>septembre</td><td>début de la mission sur le terrain, et les premiers outils construits sur place</td></tr>
+        <tr><td>F</td><td>octobre</td><td>deux graphes de connaissance de la mission</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Me joindre</h2>
+  <p>Les Abymes, Guadeloupe. Missions en Guadeloupe, en Martinique, en Guyane, et à distance.</p>
+  <div class="contact">
+    <div><span>Site</span><a href="https://synergy-bim.odoo.com">synergy-bim.odoo.com</a></div>
+    <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/ronnie-capra/">linkedin.com/in/ronnie-capra</a></div>
+    <div><span>Téléphone</span>0690 34 49 81</div>
+    <div><span>Mél</span>r.capra@synergy-bim.com</div>
+  </div>
+
+  <p class="foot">Synergy-BIM. Indice F, octobre 2026. Chaque chiffre de cette page est mesuré dans le code ou dans les dossiers de mission.</p>
+</main>
+
+<!-- ======================= ENGLISH ======================= -->
+<main class="sheet" lang="en" data-lang-block="en" hidden>
+  <header class="cartouche">
+    <div class="name">
+      <h1>Ronnie Capra</h1>
+      <p class="role">Forward Deployed Engineer. Applied AI, data, BIM. Guadeloupe and remote.</p>
+    </div>
+    <dl>
+      <dt>Rev.</dt><dd class="ind">F</dd>
+      <dt>Date</dt><dd>October 2026</dd>
+      <dt>Based in</dt><dd>Guadeloupe</dd>
+      <dt>Updated</dt><dd>monthly</dd>
+    </dl>
+  </header>
+
+  <p class="lede">I come to your organisation, learn how your work actually runs, and build the tool you are missing, with AI.</p>
+
+  <h2>What I have delivered</h2>
+  <ul class="plain">
+    <li>Since September 2026, a review of the information system and data of a public body in the French Caribbean. My first public-sector contract, <span class="num">8</span> deliverables.</li>
+    <li>For that engagement, four tools built on site: an engine that prints the deliverables to the house template, an automated mailbox log, an interview transcription pipeline, and two knowledge graphs of <span class="num">845</span> and <span class="num">1,261</span> nodes linking what the client has published to what the engagement establishes.</li>
+    <li>A bid-pricing engine for construction tenders in the French overseas territories: <span class="num">27,600</span> lines of code and <span class="num">238</span> commits in seven weeks.</li>
+    <li>A quantity take-off tool working from IFC models, tested on a hospital tender, four work packages.</li>
+    <li>Before that, fifteen years on construction sites, from electrician to BIM manager: the Guiana Space Centre, EDF's Larivot power plant, the hospitals of Cayenne and Basse-Terre, the Macouria high school, <span class="num">7 km</span> of rural electrification in Apatou.</li>
+  </ul>
+
+  <div class="distinct">
+    <p>What sets me apart: fifteen years on construction sites before I moved to data and AI.</p>
+    <p>BIM is the information system of a construction site. Today I do the same job elsewhere.</p>
+  </div>
+
+  <h2>My stack</h2>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Tool</th><th>What I use it for</th></tr></thead>
+      <tbody>
+        <tr><td>Claude Code</td><td>my main workstation: code, documents, research, and driving the other agents</td></tr>
+        <tr><td>Hermes Agent, by Nous Research</td><td>a personal agent running on a dedicated machine</td></tr>
+        <tr><td>Local models, Ollama and LM Studio</td><td>sensitive work never leaves the machine</td></tr>
+        <tr><td>Antigravity, Cursor, VS Code</td><td>editors</td></tr>
+        <tr><td>MCP servers: Firecrawl, Context7, Playwright, Chrome DevTools</td><td>reading the web, up-to-date docs, driving a browser</td></tr>
+        <tr><td>graphify</td><td>turning a document corpus into a knowledge graph</td></tr>
+        <tr><td>Python, JavaScript, Astro, Git</td><td>the code</td></tr>
+        <tr><td>Odoo</td><td>CRM, quotes, invoicing</td></tr>
+        <tr><td>Revit, Navisworks, AutoCAD, Mensura, BIMcollab, Solibri, Dalux, Autodesk Construction Cloud</td><td>the original trade, still in use</td></tr>
+        <tr><td>Power BI, QGIS</td><td>dashboards and geographic data</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The environment behind it</h2>
+  <p>A workspace where several AI agents operate under written rules: persistent memory, project routing, security rules, automated integrity checks. Thirty projects have run in it since March 2026. It is being adapted so it can be installed at client sites.</p>
+
+  <h2>In progress</h2>
+  <ul class="plain">
+    <li>Event calendars for Guadeloupe and French Guiana: domains bought, first code written.</li>
+    <li>A system of agents working in parallel: design and security written.</li>
+    <li>A "Working with AI" workshop: four modules structured.</li>
+  </ul>
+
+  <h2>The lab</h2>
+  <p>What I build for myself, because I play bass.</p>
+  <ul class="plain">
+    <li><strong>Woodshed</strong>, a practice station for bass players: the bass line scrolls with the chords locked to the beat, you loop a passage, you set each instrument's level. Over <span class="num">12,000</span> lines, <span class="num">107</span> commits, runs fully offline.</li>
+    <li><strong>StemBass Creator</strong> splits a song into its tracks, vocals, drums, bass. Executable shipped.</li>
+  </ul>
+
+  <h2>What did not work</h2>
+  <ul class="plain">
+    <li>A technical file for a precast concrete picnic table, for a manufacturer <span class="state stop">stopped</span><br>Quote turned down, the client only wanted a product sheet. Since then I offer a short first step before the full file.</li>
+    <li>A study on turning sargassum seaweed into a resource in the French Caribbean <span class="state">to publish</span><br>Plan and method written, then stopped on the market question, not the technical one. I will publish it for free.</li>
+    <li>A home delivery service <span class="state stop">dropped</span><br>The market was not there: stopped before building.</li>
+  </ul>
+
+  <h2>My 2026</h2>
+  <div class="tablewrap">
+    <table class="rev">
+      <thead><tr><th>Rev.</th><th>Month</th><th>What changed</th></tr></thead>
+      <tbody>
+        <tr><td>A</td><td>May</td><td>the workspace takes its current shape</td></tr>
+        <tr><td>B</td><td>June</td><td>personal agent installed; pricing engine, 238 commits in seven weeks; IFC take-off tool</td></tr>
+        <tr><td>C</td><td>July</td><td>audio track separation; first multi-agent systems</td></tr>
+        <tr><td>D</td><td>August</td><td>Woodshed; first public contract accepted</td></tr>
+        <tr><td>E</td><td>September</td><td>the on-site engagement begins, and the first tools built on site</td></tr>
+        <tr><td>F</td><td>October</td><td>two knowledge graphs for the engagement</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Contact</h2>
+  <p>Based in Les Abymes, Guadeloupe. Engagements in Guadeloupe, Martinique, French Guiana, and remote.</p>
+  <div class="contact">
+    <div><span>Website</span><a href="https://synergy-bim.odoo.com">synergy-bim.odoo.com</a></div>
+    <div><span>LinkedIn</span><a href="https://www.linkedin.com/in/ronnie-capra/">linkedin.com/in/ronnie-capra</a></div>
+    <div><span>Phone</span>+590 690 34 49 81</div>
+    <div><span>Email</span>r.capra@synergy-bim.com</div>
+  </div>
+
+  <p class="foot">Synergy-BIM. Rev. F, October 2026. Every figure on this page is measured in the code or in the engagement files.</p>
+</main>
+
+<script>
+(function(){
+  var blocks = document.querySelectorAll('[data-lang-block]');
+  var buttons = document.querySelectorAll('.langbar button');
+  function show(lang){
+    blocks.forEach(function(b){ b.hidden = b.getAttribute('data-lang-block') !== lang; });
+    buttons.forEach(function(btn){ btn.setAttribute('aria-pressed', String(btn.getAttribute('data-lang') === lang)); });
+    document.documentElement.lang = lang;
+    try { localStorage.setItem('stack-lang', lang); } catch(e) {}
+  }
+  buttons.forEach(function(btn){ btn.addEventListener('click', function(){ show(btn.getAttribute('data-lang')); }); });
+  var start = 'fr';
+  if (location.hash === '#en') start = 'en';
+  else { try { var s = localStorage.getItem('stack-lang'); if (s === 'en' || s === 'fr') start = s; } catch(e) {} }
+  show(start);
+})();
+</script>
+</body>
+</html>
